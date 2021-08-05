@@ -6,7 +6,7 @@ from .models import Contact,Patient
 
 @admin.register(Patient)
 class PatientAdmin(admin.ModelAdmin):
-    list_display=('id','first_name','last_name','gender','age','disease','doctor_name','fees','medicationdate')
+    list_display=['id','first_name','last_name','gender','age','disease','doctor_name','fees','medicationdate','profile_img']
 
 
 

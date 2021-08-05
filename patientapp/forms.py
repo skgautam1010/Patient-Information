@@ -14,7 +14,7 @@ class PatientRegister(forms.ModelForm):
     gender=forms.ChoiceField(choices=GENDER_CHOICES,widget=forms.RadioSelect(attrs={'class':'form-check-input'}))
     class Meta:
         model=Patient
-        fields=['first_name','last_name','gender','age','disease','doctor_name','fees','medicationdate']
+        fields=['first_name','last_name','gender','age','disease','doctor_name','fees','medicationdate','profile_img']
         labels={
             'first_name':'First Name',
             'last_name':'Last Name',
@@ -23,7 +23,8 @@ class PatientRegister(forms.ModelForm):
             'disease':'Disease',
             'doctor_name':'Doctor Name',
             'Fees':'Fees',
-            'medicationdate':'Medication Date'
+            'medicationdate':'Medication Date',
+            'profile_img':'Image'
         }
         widgets={
             'first_name': forms.TextInput(attrs={'class':'form-control','placeholder':'First Name'}),
@@ -33,4 +34,5 @@ class PatientRegister(forms.ModelForm):
             'doctor_name': forms.TextInput(attrs={'class':'form-control','placeholder':'Doctors Name'}),
             'fees': forms.TextInput(attrs={'class':'form-control','placeholder':'Fees'}),
             'medicationdate': forms.DateInput(attrs={'class':'form-control','placeholder':'Medication Start Date(YYYY-MM-DD)'}),
+            'profile_img':forms.FileInput(attrs={'class':'form-control'})
         }

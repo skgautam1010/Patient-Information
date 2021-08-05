@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render,HttpResponseRedirect
 from .models import Contact,Patient
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
@@ -7,10 +7,11 @@ from .forms import PatientRegister
 # Create your views here.
 def home(request):
     if request.method=="POST":
-        pr=PatientRegister(request.POST)
+        pr=PatientRegister(request.POST,request.FILES)
         if pr.is_valid():
             pr.save()
             messages.success(request,"Information Saved Successfully")
+            pr=PatientRegister()
     else:
         pr=PatientRegister()
     pat=Patient.objects.all()
@@ -19,6 +20,11 @@ def home(request):
 
 
 
+def delete_data(request,id):
+    if request.method=="POST":
+        pi=Patient.objects.get(pk=id)
+        pi.delete()
+        return HttpResponseRedirect('/')
 
 
 

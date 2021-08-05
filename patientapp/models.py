@@ -13,6 +13,7 @@ class Patient(models.Model):
     doctor_name=models.CharField(max_length=50)
     fees=models.IntegerField(default=500)
     medicationdate=models.DateField()
+    profile_img=models.ImageField(upload_to="profileimg",default="profile_image.jpg",blank=True)
 
 
 class Contact(models.Model):
