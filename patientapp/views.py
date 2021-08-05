@@ -9,6 +9,9 @@ def home(request):
 def aboutus(request):
     return render(request,'aboutus.html')
 
+
+
+
 @csrf_exempt
 def contactus(request):
     if(request.method=='POST'):
@@ -23,7 +26,7 @@ def contactus(request):
                  contact=contact,
                  emailid=emailid,
                  feedback=feedback)
-        d.save()
+        c=d.save()
         messages.success(request,"Feedback Received!! Thanks for contacting..we will get back to you very soon!")
 
     return render(request,'contactus.html')

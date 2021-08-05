@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+{% load static %}
     <header class="jumbotron">
         <div class="container">
             <div class="row row-header">
@@ -9,12 +9,12 @@
                     <!--<p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>-->
                 </div>
                 <div class="col-6 col-sm align-self-center">
-                    <img src="https://user-images.githubusercontent.com/26179770/106359099-693e3380-6336-11eb-8069-9e36f25de5ca.png" class="img-fluid">
-                </div>
+                    <img src="{% static 'images/doctorvector.jpg' %}" class="img-fluid" height="60" width="200">
+                </div> 
             </div>
         </div>
     </header>
-
+    {% include 'messages.html' %}
     <div class="container">
         <div class="row">
             <ol class="col-12 breadcrumb">

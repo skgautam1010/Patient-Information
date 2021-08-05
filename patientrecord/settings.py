@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'patientapp'
 ]
 
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -121,10 +123,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 APPEND_SLASH=False
 
-MESSAGE_TAGS = {
-        messages.DEBUG: 'alert-secondary',
-        messages.INFO: 'alert-info',
-        messages.SUCCESS: 'alert-success',
-        messages.WARNING: 'alert-warning',
-        messages.ERROR: 'alert-danger',
-}
+
