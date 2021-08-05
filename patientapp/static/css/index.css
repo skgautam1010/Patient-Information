@@ -10,10 +10,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-top: 60px;
 }
 
 .head-image {
     width: 250px;
+}
+
+#id_gender >li{
+    display: inline-block;
+    padding-right: 20px;
 }
 

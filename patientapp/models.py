@@ -2,23 +2,23 @@ from django.db import models
 
 # Create your models here.
 
-GENDER_CHOICES = (
-    (0, 'Male'),
-    (1, 'Female'),
-    (2, 'Transgender'),
-    (3,'Prefer Not To Say')
-)
+
 
 class Patient(models.Model):
     first_name=models.CharField(max_length=50)
     last_name=models.CharField(max_length=50)
-    gender=models.IntegerField(choices=GENDER_CHOICES)   
+    gender=models.CharField(max_length=60)
+    age=models.IntegerField()
+    disease=models.CharField(max_length=100)
+    doctor_name=models.CharField(max_length=50)
+    fees=models.IntegerField(default=500)
+    medicationdate=models.DateField()
 
 
 class Contact(models.Model):
     first_name=models.CharField(max_length=50)
     last_name=models.CharField(max_length=50)
-    contact=models.BigIntegerField()
+    contact=models.IntegerField()
     emailid=models.EmailField(max_length=30)
     feedback=models.CharField(max_length=500)
 

@@ -22,80 +22,48 @@
                     />
             <h1 style="margin-top:20px;">Patient Information</h1>
         </div>
+        <div class="col-12 col-md-5 offset-md-3 offset-ml-1">
+        {% include 'messages.html' %}
+        </div>
         <div class="container">
             <div class="row row-content">
-                <div class="col-12 col-md-9">
+                <div class="col-12 col-md-12">
+                    <h2 class="alert alert-danger text-center p-3">Add Patient Information</h2>
+                </div>
+                <div class="col-12 col-md-10">  
                     <form action="/" method="post">
-                        <div class="form-group row">
-                            <label for="firstname" class="col-md-2 col-form-label">First Name</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name">
+                            {% csrf_token %}
+                        {% for fm in form %}
+                          <div class="form-group row">
+                              <div class="col-md-2">
+                                {{fm.label_tag}}
+                              </div>
+                              <div class="col-md-10">
+                                    {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                              </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="lastname" class="col-md-2 col-form-label">Last Name</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name">
-                            </div> 
-                        </div>
-                        <div class="form-group row">
-                            <label for="gender" class="col-12 col-md-2 col-form-label">Gender</label>
-                            <div class="col-md-10">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Male">
-                                    <label class="form-check-label" for="inlineRadio1">Male</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Female">
-                                    <label class="form-check-label" for="inlineRadio2">Female</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Transgender">
-                                    <label class="form-check-label" for="inlineRadio3">Transgender</label>
-                                </div>  
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="Prefer Not To Say">
-                                    <label class="form-check-label" for="inlineRadio4">Prefer Not to Say</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="age" class="col-md-2 col-form-label">Age</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="age" name="age" placeholder="Age">
-                            </div> 
-                        </div>
+                        {% endfor %}
                         
-                         <div class="form-group row">
-                            <label for="disease" class="col-md-2 col-form-label">Disease</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="disease" name="disease" placeholder="Disease">
-                            </div> 
-                        </div>
-                        <div class="form-group row">
-                            <label for="docname" class="col-md-2 col-form-label">Doctor</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="docname" name="docname" placeholder="Doctors Name">
-                            </div> 
-                        </div>
-                        <div class="form-group row">
-                            <label for="fees" class="col-md-2 col-form-label">Fees</label>
-                            <div class="col-md-10">
-                                <input type="text" value="500" class="form-control" id="fees" name="fees" placeholder="Fees">
-                            </div> 
-                        </div>
-                        <div class="form-group row">
-                            <label for="example-date-input" class="col-md-2 col-form-label">Medication Date</label>
-                            <div class="col-12 col-md-10">
-                              <input class="form-control" type="text" id="date" name="date" placeholder="Medication Start Date(DD/MM/YYYY)">
-                            </div>
-                        </div>
                         <div class="form-group-row">
                             <div class="offset-md-2 col-md-10">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+            <div class="row row-content">
+                <div class="col-12 col-md-12">
+                    <h2 class="alert alert-danger text-center p-3">View Patient Information</h2>
+                </div>
+                <div class="col-12 col-md-10">
+                    {% if pat %}
+                    
+                    {% else %}
+                    <div class="col-12 col-md-5 offset-md-4">
+                        <h2 class="alert alert-dark text-center p-3">No Record Found</h2>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
