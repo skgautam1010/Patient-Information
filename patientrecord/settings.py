@@ -129,5 +129,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 APPEND_SLASH=False
 
 STATIC_URL = '/static/'
-STATIC_ROOT= os.psth.join(BASE_DIR, 'static')
+STATIC_ROOT= os.path.join(BASE_DIR, 'static')
 
