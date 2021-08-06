@@ -33,6 +33,6 @@ class PatientRegister(forms.ModelForm):
             'disease': forms.TextInput(attrs={'class':'form-control','placeholder':'Disease'}),
             'doctor_name': forms.TextInput(attrs={'class':'form-control','placeholder':'Doctors Name'}),
             'fees': forms.TextInput(attrs={'class':'form-control','placeholder':'Fees'}),
-            'medicationdate': forms.DateInput(attrs={'class':'form-control','placeholder':'Medication Start Date(YYYY-MM-DD)'}),
+            'medicationdate': forms.DateInput(attrs={'class':'form-control datepicker','placeholder':'Medication Start Date Format (YYYY-MM-DD)'}),
             'profile_img':forms.FileInput(attrs={'class':'form-control'})
         }

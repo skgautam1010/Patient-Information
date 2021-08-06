@@ -24,6 +24,7 @@ def delete_data(request,id):
     if request.method=="POST":
         pi=Patient.objects.get(pk=id)
         pi.delete()
+        messages.success(request,"Data Deletion Successful!")
         return HttpResponseRedirect('/')
 
 
@@ -52,7 +53,7 @@ def contactus(request):
     if(request.method=='POST'):
         first_name=request.POST['firstname']
         last_name=request.POST['lastname']
-        contact=request.POST['telnum']
+        contact=request.POST['phone']
         emailid=request.POST['emailid']
         feedback=request.POST['feedback']
 
