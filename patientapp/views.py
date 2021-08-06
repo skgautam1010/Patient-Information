@@ -10,7 +10,7 @@ def home(request):
         pr=PatientRegister(request.POST,request.FILES)
         if pr.is_valid():
             pr.save()
-            messages.success(request,"Information Saved Successfully")
+            messages.success(request,"Information Saved Successfully!")
             pr=PatientRegister()
     else:
         pr=PatientRegister()
@@ -28,7 +28,17 @@ def delete_data(request,id):
 
 
 
-
+def update_data(request,id):
+    if request.method=="POST":
+        pi=Patient.objects.get(pk=id)
+        pr=PatientRegister(request.POST,request.FILES,instance=pi)
+        if pr.is_valid():
+            pr.save()
+            messages.success(request,"Information Updated Successfully!")
+    else:
+        pi=Patient.objects.get(pk=id)
+        pr=PatientRegister(instance=pi)
+    return render(request,'updatedata.html',{'form':pr})
 
 
 

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/update.css' %}">
+    </head>
+    <body>
+        <div class="col-12 col-md-5 offset-md-3 offset-ml-1 mt-2">
+            {% include 'messages.html' %}
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12 mt-5">
+                    <h2 class="alert alert-danger text-center p-2">Update Patient Information</h2>
+                </div>
+                <div class="col-12 col-md-10">  
+                    <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        {% for fm in form %}
+                          <div class="form-group row">
+                              <div class="col-md-2">
+                                {{fm.label_tag}}
+                              </div>
+                              <div class="col-md-10">
+                                    {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                              </div>
+                            </div>
+                        {% endfor %}
+                        <div class="form-group-row btn-group">
+                            <div class="offset-md-7 col-md-7">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            <a href="{% url 'home' %}" class="btn btn-info">Back To Home</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock content %}    
