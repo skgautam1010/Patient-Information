@@ -6,7 +6,8 @@ name = "pypi"
 [packages]
 django = "*"
 pillow = "*"
-django-unused-media = "*"
+waitress = "*"
+whitenoise = "*"
 
 [dev-packages]
 
