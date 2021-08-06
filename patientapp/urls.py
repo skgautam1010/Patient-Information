@@ -9,4 +9,7 @@ urlpatterns = [
     path('contactus',views.contactus,name='contactus'),
     path('delete/<int:id>/',views.delete_data,name='deletedata'),
     path('<int:id>/',views.update_data,name='updatedata')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
