@@ -8,6 +8,7 @@ django = "*"
 pillow = "*"
 waitress = "*"
 whitenoise = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
