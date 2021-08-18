@@ -36,7 +36,7 @@ def update_data(request,id):
         if pr.is_valid():
             pr.save()
             messages.success(request,"Information Updated Successfully!")
-            return HttpResponseRedirect('updatedata')
+            return HttpResponseRedirect('id')
     else:
         pi=Patient.objects.get(pk=id)
         pr=PatientRegister(instance=pi)
