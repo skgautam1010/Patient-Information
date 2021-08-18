@@ -11,7 +11,7 @@ def home(request):
         if pr.is_valid():
             pr.save()
             messages.success(request,"Information Saved Successfully!")
-            pr=PatientRegister()
+            return HttpResponseRedirect('/')
     else:
         pr=PatientRegister()
     pat=Patient.objects.all()
@@ -36,6 +36,7 @@ def update_data(request,id):
         if pr.is_valid():
             pr.save()
             messages.success(request,"Information Updated Successfully!")
+            return HttpResponseRedirect('updatedata')
     else:
         pi=Patient.objects.get(pk=id)
         pr=PatientRegister(instance=pi)
@@ -64,5 +65,5 @@ def contactus(request):
                  feedback=feedback)
         d.save()
         messages.success(request,"Feedback Received!! Thanks for contacting..we will get back to you very soon!")
-
+        return HttpResponseRedirect('contactus')
     return render(request,'contactus.html')
